@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../../components/head'); %>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body class="">
+
+
+  <main>
+    <section class="">
+      <div class="" style="background-image: url('assets/img/register_bg_2.png');">
+        <div class="">
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <h6 class="">
+                      Sign in with
+                    </h6>
+                  </div>
+
+                </div>
+                <div class="">
+                  <form>
+                    <div class="">
+                      <label class="" htmlFor="grid-password">
+                        Mnemonic
+                      </label>
+                      <input type="text" value="<%=mnemonic%>" class="" placeholder="Mnemonic" />
+                    </div>
+
+                    <div>
+                      <label class="">
+                        <input id="customCheckLogin" type="checkbox" class="" />
+                        <span class="">
+                          Remember me
+                        </span>
+                      </label>
+                    </div>
+
+                    <div class="">
+                      <div id="sign_in_button" name="sign_in_button" class="" type="button">
+                        Sign In
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const sign_in_button = document.querySelector('#sign_in_button')
+    sign_in_button.addEventListener('click', async (e) => {
+      const returnData = await $.ajax("/controller/user_login", {
+        type: 'post', // http method
+        data: {
+          mnemonic: "salad shield toss purse scale weasel dilemma hill gold attitude name admit"
+        }, // data to submit
+        success: function(data, status, xhr) {},
+        error: function(jqXhr, textStatus, errorMessage) {
+          $('p').append('Error: ' + errorMessage);
+        }
+      })
+      if (returnData != "SetupCollectionPage") {
+        window.location.href = "/home";
+      }
+    });
+  </script>
+</body>
+
+</html>

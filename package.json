@@ -1,0 +1,37 @@
+{
+  "name": "nft-collection-express-jquery",
+  "version": "1.0.0",
+  "description": "Making a multi page application using express and jquery",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaimanza/nft-collection-express-jquery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaimanza/nft-collection-express-jquery/issues"
+  },
+  "homepage": "https://github.com/zaimanza/nft-collection-express-jquery#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bigchaindb-driver": "^4.3.0",
+    "bip39": "^3.0.4",
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "morgan": "^1.10.0",
+    "node-localstorage": "^2.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "nodemon": "^2.0.16",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.2"
+  }
+}
