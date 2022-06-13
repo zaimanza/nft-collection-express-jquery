@@ -40,7 +40,11 @@
       const description_input = document.querySelector('input[name="description_input"]').value
       const image_input = document.querySelector('input[name="image_input"]').value
 
-      if (title_input != "" && description_input != "" && image_input != "") {
+      if (
+        title_input != "" &&
+        description_input != "" &&
+        image_input != ""
+      ) {
         const returnData = await $.ajax("/controller/setup_collection", {
           type: 'post', // http method
           data: {

@@ -46,6 +46,47 @@
       </div>
     </div>
   </main>
+  <script>
+    const add_metadata_button = document.querySelector('#add_metadata_button')
+
+    add_metadata_button.addEventListener('click', async (e) => {
+
+      const name_input = document.querySelector('input[name="name"]').value
+      const description_input = document.querySelector('input[name="description"]').value
+      const token_id_input = document.querySelector('input[name="token_id"]').value
+      const image_input = document.querySelector('input[name="image"]').value
+      const current_chain_input = document.querySelector('input[name="current_chain"]').value
+      if (
+        name_input != "" &&
+        description_input != "" &&
+        token_id_input != "" &&
+        image_input != "" &&
+        current_chain_input != ""
+      ) {
+        const returnData = await $.ajax("/controller/add_metadata", {
+          type: 'post', // http method
+          data: {
+            name: name_input,
+            description: description_input,
+            token_id: token_id_input,
+            image: image_input,
+            current_chain: current_chain_input
+          }, // data to submit
+          success: function(data, status, xhr) {},
+          error: function(jqXhr, textStatus, errorMessage) {
+            $('p').append('Error: ' + errorMessage);
+          }
+        })
+        if (returnData) {
+          window.location.href = "/home";
+        } else {
+          alert("Try again.");
+        }
+      } else {
+        alert("Fill in all input.");
+      }
+    });
+  </script>
 </body>
 
 </html>

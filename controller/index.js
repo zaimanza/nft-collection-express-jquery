@@ -4,7 +4,6 @@ var router = require('express').Router();
 router.use('/', require('./user_login.controller'));
 router.use('/', require('./setup_collection.controller'));
 router.use('/', require('./user_logout.controller'));
-// router.use('/addMetadata', require('./AddMetadataPage'));
-// etc.
+router.use('/', require('./add_metadata.controller'));
 
 module.exports = router;

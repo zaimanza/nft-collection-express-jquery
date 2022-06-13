@@ -81,7 +81,7 @@ const useMetadata = () => {
                 })
             }
 
-            return latestTransaction
+            return latestTransaction ?? {}
 
         } catch (error) {
             return

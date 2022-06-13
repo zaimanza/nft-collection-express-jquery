@@ -38,17 +38,21 @@
     <table class="">
       <thead>
         <tr>
-          <th class="">Trait type</th>
-          <th class="">Value</th>
-          <th class="">Display type</th>
+          <th class="">Name</th>
+          <th class="">Description</th>
+          <th class="">Token ID</th>
+          <th class="">Image</th>
+          <th class="">Current Chain</th>
         </tr>
       </thead>
       <tbody class="">
         <% for (var i =1; i <=metadatas.length;  i++ ) { %>
         <tr>
-          <td class=""><%= metadatas[i-1].trait_type %></td>
-          <td class=""><%= metadatas[i-1].value %></td>
-          <td class=""><%= metadatas[i-1].display_type %></td>
+          <td class=""><%= metadatas[i-1].name %></td>
+          <td class=""><%= metadatas[i-1].description %></td>
+          <td class=""><%= metadatas[i-1].token_id %></td>
+          <td class=""><%= metadatas[i-1].image %></td>
+          <td class=""><%= metadatas[i-1].current_chain %></td>
         </tr>
         <% } %>
       </tbody>
