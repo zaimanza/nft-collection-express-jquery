@@ -4,14 +4,14 @@ const useLocalStorage = require('./useLocalStorage')
 
 const usePlayer = () => {
 
-    const { setItem, getItem } = useLocalStorage()
+    const { setItem, getItem, removeItem } = useLocalStorage()
 
     const player_login = async ({ mnemonic }) => {
 
         const seed = (await bip39.mnemonicToSeed(mnemonic)).slice(0, 32)
         const player = new BigChainDB.Ed25519Keypair(seed)
 
-        setItem({
+        await setItem({
             key: "player",
             value: JSON.stringify(player)
         })
@@ -21,6 +21,16 @@ const usePlayer = () => {
             private: player.privateKey,
             public: player.publicKey,
         };
+    }
+
+    const player_logout = async () => {
+
+
+        await removeItem({
+            key: "player"
+        })
+
+        return true;
     }
 
     const player_register = async () => {
@@ -42,14 +52,18 @@ const usePlayer = () => {
     }
 
     const getPlayer = async () => {
-        return await JSON.parse(
-            await getItem({
-                key: "player"
-            })
-        )
+        try {
+            return await JSON.parse(
+                await getItem({
+                    key: "player"
+                })
+            )
+        } catch (err) {
+            return
+        }
     }
 
-    return { player_login, player_register, getPlayer }
+    return { player_logout, player_login, player_register, getPlayer }
 }
 
 module.exports = usePlayer
