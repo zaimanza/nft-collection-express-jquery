@@ -11,55 +11,51 @@
 
 
   <main>
-    <section class="">
-      <div class="" style="background-image: url('assets/img/register_bg_2.png');">
+    <div class="">
+      <div class="">
         <div class="">
           <div class="">
             <div class="">
               <div class="">
                 <div class="">
-                  <div class="">
-                    <h6 class="">
-                      Sign in with
-                    </h6>
-                  </div>
-
+                  <label class="">
+                    Sign in with
+                    </lab>
                 </div>
+
+              </div>
+              <div class="">
                 <div class="">
-                  <form>
-                    <div class="">
-                      <label class="" htmlFor="grid-password">
-                        Mnemonic
-                      </label>
-                      <input type="text" value="<%=mnemonic%>" class="" placeholder="Mnemonic" />
-                    </div>
+                  <label class="" htmlFor="grid-password">
+                    Mnemonic
+                  </label>
+                  <input type="text" value="<%=mnemonic%>" class="" placeholder="Mnemonic" />
+                </div>
 
-                    <div>
-                      <label class="">
-                        <input id="customCheckLogin" type="checkbox" class="" />
-                        <span class="">
-                          Remember me
-                        </span>
-                      </label>
-                    </div>
+                <div>
+                  <label class="">
+                    <input id="customCheckLogin" type="checkbox" class="" />
+                    <span class="">
+                      Remember me
+                    </span>
+                  </label>
+                </div>
 
-                    <div class="">
-                      <div id="sign_in_button" name="sign_in_button" class="" type="button">
-                        Sign In
-                      </div>
-                    </div>
-                  </form>
+                <div class="">
+                  <div id="sign_in_button" name="sign_in_button" class="" type="button">
+                    Sign In
+                  </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </main>
   <script>
     const sign_in_button = document.querySelector('#sign_in_button')
+
     sign_in_button.addEventListener('click', async (e) => {
       const returnData = await $.ajax("/controller/user_login", {
         type: 'post', // http method
