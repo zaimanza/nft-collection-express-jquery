@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../../components/head'); %>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="">
+  <main>
+    <div class="">
+      <label class="" for="title_input">
+        Title
+      </label>
+      <input id="title_input" name="title_input" type="text" placeholder="Title" class="">
+    </div>
+    <div class="">
+      <label class="" for="description_input">
+        Description
+      </label>
+      <input id="description_input" name="description_input" type="text" placeholder="Description" class="">
+    </div>
+    <div class="">
+      <label class="" for="image_input">
+        Image url
+      </label>
+      <input id="image_input" name="image_input" type="text" placeholder="Image url" class="">
+    </div>
+    <div class="">
+      <div id="update_collection_button" name="update_collection_button" class="">
+        Update Collection
+      </div>
+    </div>
+  </main>
+  <script>
+    const update_collection_button = document.querySelector('#update_collection_button')
+
+    update_collection_button.addEventListener('click', async (e) => {
+      const title_input = document.querySelector('input[name="title_input"]').value
+      const description_input = document.querySelector('input[name="description_input"]').value
+      const image_input = document.querySelector('input[name="image_input"]').value
+
+      if (title_input != "" && description_input != "" && image_input != "") {
+        const returnData = await $.ajax("/controller/setup_collection", {
+          type: 'post', // http method
+          data: {
+            title: title_input,
+            description: description_input,
+            image: image_input
+          }, // data to submit
+          success: function(data, status, xhr) {},
+          error: function(jqXhr, textStatus, errorMessage) {
+            $('p').append('Error: ' + errorMessage);
+          }
+        })
+        if (returnData) {
+          window.location.href = "/home";
+        } else {
+          alert("Try again.");
+        }
+      } else {
+        alert("Fill in all input.");
+      }
+    });
+  </script>
+</body>
+
+</html>
+<!-- href="/controllers/loginController" -->

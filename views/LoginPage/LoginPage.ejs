@@ -60,7 +60,7 @@
       const returnData = await $.ajax("/controller/user_login", {
         type: 'post', // http method
         data: {
-          mnemonic: "salad shield toss purse scale weasel dilemma hill gold attitude name admit"
+          mnemonic: "salad shield toss purse scale weasel dilemma hill gold attitude admit name"
         }, // data to submit
         success: function(data, status, xhr) {},
         error: function(jqXhr, textStatus, errorMessage) {
@@ -69,6 +69,8 @@
       })
       if (returnData != "SetupCollectionPage") {
         window.location.href = "/home";
+      } else {
+        window.location.href = "/setup_collection";
       }
     });
   </script>

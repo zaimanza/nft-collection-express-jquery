@@ -11,25 +11,28 @@ const { getMetadatas, createMetadata } = useMetadata()
 const { player_login, player_register, getPlayer } = usePlayer()
 const { fetchLatestTransaction } = useBigchaindb()
 // api/products
-router.post('/user_login', async (req, res) => {
+router.post('/setup_collection', async (req, res) => {
     try {
         const props = req.body;
 
-        var register_result
         const player = await getPlayer()
-        if (!player) {
-            register_result = await player_login({
-                mnemonic: props.mnemonic
-            })
-        }
-        // chcek in db if collection tkda
+        const returnData = await createCollection({
+            asset: {
+                type: "collection",
+            },
+            metadata: {
+                title: props.title,
+                description: props.description,
+                image: props.image,
+            },
+            publicKey: player.publicKey,
+            privateKey: player.privateKey
+        })
 
-        const fetchedCollection = await getCollection()
-        if ((register_result || player) && fetchedCollection.length != 0) {
-
-            res.status(200).json(register_result || player)
+        if (JSON.stringify(returnData) != JSON.stringify({})) {
+            res.status(200).json(true)
         } else {
-            res.status(200).json("SetupCollectionPage")
+            res.status(200).json(false)
         }
     } catch (error) {
         res.status(400).json(error)
