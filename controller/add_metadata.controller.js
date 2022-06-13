@@ -14,6 +14,7 @@ const { fetchLatestTransaction } = useBigchaindb()
 router.post('/add_metadata', async (req, res) => {
     try {
         const props = req.body;
+
         const player = await getPlayer()
         const returnData = await createMetadata({
             asset: {
@@ -25,6 +26,7 @@ router.post('/add_metadata', async (req, res) => {
                 token_id: props.token_id,
                 image: props.image,
                 current_chain: props.current_chain,
+                attributes: JSON.parse(props.attributes)
             },
             publicKey: player.publicKey,
             privateKey: player.privateKey

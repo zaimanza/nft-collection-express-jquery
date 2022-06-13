@@ -39,6 +39,22 @@
       </label>
       <input id="current_chain" name="current_chain" type="text" placeholder="Current chain" class="">
     </div>
+    <div class="">
+      <label class="">
+        Attributes
+      </label>
+      <div id="attribute-list" class="">
+        <ul></ul>
+      </div>
+      <div class="">
+        <input type="text" name="trait_type" placeholder="Trait type" />
+        <input type="text" name="value" placeholder="Value" />
+        <input type="text" name="display_type" placeholder="Display type" />
+        <div id="add_attribute_button" name="add_attribute_button" class="" type="button">
+          Add attribute
+        </div>
+      </div>
+    </div>
 
     <div class="">
       <div id="add_metadata_button" name="add_metadata_button" class="" type="button">
@@ -46,6 +62,63 @@
       </div>
     </div>
   </main>
+  <script>
+    const attributeList = document.querySelector('#attribute-list ul')
+
+    var attribute_list_arr = []
+
+    // delete attributes
+    attributeList.addEventListener('click', (e) => {
+      if (e.target.className == 'delete') {
+        const li = e.target.parentElement
+        attribute_list_arr.splice($("li").index(li), 1)
+        li.parentNode.removeChild(li)
+        console.table(attribute_list_arr)
+      }
+    });
+    const add_attribute_button = document.querySelector('#add_attribute_button')
+
+    add_attribute_button.addEventListener('click', async (e) => {
+      const trait_type = document.querySelector('input[name="trait_type"]').value
+      const value = document.querySelector('input[name="value"]').value
+      const display_type = document.querySelector('input[name="display_type"]').value
+
+      attribute_list_arr.push({
+        trait_type: trait_type,
+        value: value,
+        display_type: display_type
+      })
+
+      const li = document.createElement('li')
+      const trait_type_span = document.createElement('span')
+      const value_span = document.createElement('span')
+      const display_type_span = document.createElement('span')
+      const delete_btn_span = document.createElement('span')
+
+      trait_type_span.textContent = trait_type
+      value_span.textContent = value
+      display_type_span.textContent = display_type
+      delete_btn_span.textContent = 'delete'
+
+      trait_type_span.setAttribute('name', "trait_type")
+      value_span.setAttribute('name', "value")
+      display_type_span.setAttribute('name', "display_type")
+      delete_btn_span.classList.add('delete')
+
+      li.appendChild(trait_type_span)
+      li.appendChild(value_span)
+      li.appendChild(display_type_span)
+      li.appendChild(delete_btn_span)
+
+      attributeList.appendChild(li)
+      console.table(attribute_list_arr)
+
+      document.querySelector('input[name="trait_type"]').value = ''
+      document.querySelector('input[name="value"]').value = ''
+      document.querySelector('input[name="display_type"]').value = ''
+
+    });
+  </script>
   <script>
     const add_metadata_button = document.querySelector('#add_metadata_button')
 
@@ -70,7 +143,8 @@
             description: description_input,
             token_id: token_id_input,
             image: image_input,
-            current_chain: current_chain_input
+            current_chain: current_chain_input,
+            attributes: JSON.stringify(attribute_list_arr)
           }, // data to submit
           success: function(data, status, xhr) {},
           error: function(jqXhr, textStatus, errorMessage) {
