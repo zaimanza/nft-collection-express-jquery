@@ -4,7 +4,8 @@
   "description": "Making a multi page application using express and jquery",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "manza": "nodemon server.js"
   },
   "repository": {
     "type": "git",
