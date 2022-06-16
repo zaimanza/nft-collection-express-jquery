@@ -11,10 +11,8 @@ router.get('/', async (req, res) => {
     })
 
     res.render('LoginPage/LoginPage', {
-        mnemonic: "shield salad toss purse scale weasel dilemma hill gold attitude admit name",
+        mnemonic: "shield salad purse toss scale weasel dilemma hill gold attitude admit name",
     })
 })
 
 module.exports = router;
-
-

@@ -6,30 +6,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="">
-  <main>
-    <div class="">
-      <label class="" for="title_input">
-        Title
-      </label>
-      <input id="title_input" name="title_input" type="text" placeholder="Title" class="">
-    </div>
-    <div class="">
-      <label class="" for="description_input">
-        Description
-      </label>
-      <input id="description_input" name="description_input" type="text" placeholder="Description" class="">
-    </div>
-    <div class="">
-      <label class="" for="image_input">
-        Image url
-      </label>
-      <input id="image_input" name="image_input" type="text" placeholder="Image url" class="">
-    </div>
-    <div class="">
-      <div id="update_collection_button" name="update_collection_button" class="">
-        Update Collection
+<body>
+  <main class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-stone-200 w-96 p-6 rounded shadow-sm text-center">
+      <div class="flex items-center justify-center mb-4">
+        <img class="h-10 w-10" src="https://i.pinimg.com/736x/e9/e2/78/e9e2787d0cb55d570fe1c76843506759.jpg" alt="">
       </div>
+      <h1>Welcome New User</h1>
+      <h3>Setup Your Profile</h3>
+      <br>
+      <button type="button" class="relative truncate rounded-2xl p-2 bg-slate-300 hover:bg-slate-100">
+        <i class="fa fa-upload"></i> Profile Picture
+        <input type="file" class="absolute opacity-0">
+      </button>
+      <br>
+      <input type="text" name="title_input" id="title_input" placeholder="Title" class="bg-stone-200 w-full py-2 text-gray-700 px-1 outline-none mb-4 border-b-2 border-zinc-500 ">
+      <br>
+      <input type="text" name="description_input" id="description_input" placeholder="Description" class="bg-stone-200 w-full py-2 text-gray-700 px-1 outline-none mb-4 border-b-2 border-zinc-500 ">
+
+      <div id="update_collection_button" name="update_collection_button" class="bg-blue-500 w-full text-white py-2 rounded-3xl hover:bg-blue-600 transition-colors my-5">
+        Save
+      </div>
+
     </div>
   </main>
   <script>
@@ -38,7 +36,8 @@
     update_collection_button.addEventListener('click', async (e) => {
       const title_input = document.querySelector('input[name="title_input"]').value
       const description_input = document.querySelector('input[name="description_input"]').value
-      const image_input = document.querySelector('input[name="image_input"]').value
+      // const image_input = document.querySelector('input[name="image_input"]').value
+      const image_input = "https://lh3.googleusercontent.com/J-8vLGmHUYx8guomAAfjfoG5O4z0gRxKb6aTKVt6MfN_1zTG0lnIyBTHGyz2iveL_6MfcVNuSPALDhfnFw0HOC9DftYo-QXWYPL33Q=s168"
 
       if (
         title_input != "" &&
