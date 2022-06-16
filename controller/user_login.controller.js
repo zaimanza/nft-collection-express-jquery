@@ -14,7 +14,6 @@ const { fetchLatestTransaction } = useBigchaindb()
 router.post('/user_login', async (req, res) => {
     try {
         const props = req.body;
-
         var register_result
         const player = await getPlayer()
 
@@ -25,6 +24,8 @@ router.post('/user_login', async (req, res) => {
         }
         // chcek in db if collection tkda
 
+        console.table(register_result)
+        console.log(player)
         const fetchedCollection = await getCollection()
         if ((register_result || player) && fetchedCollection.length != 0) {
 
