@@ -4,7 +4,7 @@ const usePlayer = require('../modules/usePlayer')
 const useCollection = require('../modules/useCollection')
 const useMetadata = require('../modules/useMetadata')
 const useBigchaindb = require('../modules/useBigchaindb')
-
+// 
 const { removeItem } = useLocalStorage()
 const { getCollection, createCollection } = useCollection()
 const { getMetadatas, createMetadata } = useMetadata()
