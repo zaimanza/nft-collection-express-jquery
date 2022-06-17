@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         if (fetchedMetadatas.length != 0) {
             for (const fetchedMetadata of fetchedMetadatas) {
                 const latestFetchMeta = await fetchLatestTransaction(fetchedMetadata.id)
-                console.log(latestFetchMeta)
+                // console.log(latestFetchMeta)
                 latestFetchMetadatas.push(latestFetchMeta.metadata)
             }
         }
