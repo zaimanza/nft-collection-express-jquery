@@ -13,12 +13,12 @@ router.post('/add_metadata', async (req, res) => {
                 type: "metadata",
             },
             metadata: {
-                name: props.name,
-                description: props.description,
-                token_id: props.token_id,
-                image: props.image,
-                current_chain: props.current_chain,
-                attributes: JSON.parse(props.attributes)
+                name: props?.name,
+                description: props?.description,
+                token_id: props?.token_id,
+                image: props?.image,
+                current_chain: props?.current_chain,
+                attributes: JSON.parse(props?.attributes)
             },
             publicKey: player.publicKey,
             privateKey: player.privateKey
