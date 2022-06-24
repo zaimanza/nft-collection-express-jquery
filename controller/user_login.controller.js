@@ -24,8 +24,8 @@ router.post('/user_login', async (req, res) => {
         }
         // chcek in db if collection tkda
 
-        // console.table(register_result)
-        // console.log(player)
+        console.table(register_result)
+        console.log(player)
         const fetchedCollection = await getCollection()
         if ((register_result || player) && fetchedCollection.length != 0) {
 
