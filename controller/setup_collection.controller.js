@@ -1,15 +1,6 @@
 var router = require('express').Router()
-const useLocalStorage = require('../modules/useLocalStorage')
-const usePlayer = require('../modules/usePlayer')
-const useCollection = require('../modules/useCollection')
-const useMetadata = require('../modules/useMetadata')
-const useBigchaindb = require('../modules/useBigchaindb')
-
-const { removeItem } = useLocalStorage()
-const { getCollection, createCollection } = useCollection()
-const { getMetadatas, createMetadata } = useMetadata()
-const { player_login, player_register, getPlayer } = usePlayer()
-const { fetchLatestTransaction } = useBigchaindb()
+const { createCollection } = require('../modules/collection.module')
+const { getPlayer } = require('../modules/player.module')
 // api/products
 router.post('/setup_collection', async (req, res) => {
     try {

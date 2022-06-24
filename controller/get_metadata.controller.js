@@ -1,6 +1,6 @@
+const { fetchLatestTransaction } = require('../database/bigchaindb.database')
+
 var router = require('express').Router()
-const useBigchaindb = require('../modules/useBigchaindb')
-const { fetchLatestTransaction } = useBigchaindb()
 
 router.get('/get_metadata/:id?', async (req, res) => {
     try {

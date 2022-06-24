@@ -1,15 +1,11 @@
-const http = require('http');
-const useMongodb = require("./modules/useMongodb")
-const usePlayer = require('./modules/usePlayer')
-const useGame = require('./modules/useGame')
+const http = require('http')
 
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser")
+const { connectDB } = require('./database/mongodb.database')
 
-const { connectDB } = useMongodb()
-const { createGame, appendGame } = useGame()
 connectDB()
 
 app.use(morgan("dev"));

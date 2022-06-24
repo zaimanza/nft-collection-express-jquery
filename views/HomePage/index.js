@@ -1,13 +1,7 @@
 var router = require('express').Router()
-const useBigchaindb = require('../../modules/useBigchaindb')
-const useCollection = require('../../modules/useCollection')
-const useMetadata = require('../../modules/useMetadata')
-const usePlayer = require('../../modules/usePlayer')
-
-const { player_login, player_register, getPlayer } = usePlayer()
-const { getCollection, createCollection } = useCollection()
-const { getMetadatas, createMetadata } = useMetadata()
-const { fetchLatestTransaction } = useBigchaindb()
+const { fetchLatestTransaction } = require('../../database/bigchaindb.database')
+const { getCollection } = require('../../modules/collection.module')
+const { getMetadatas } = require('../../modules/metadata.module')
 // api/products
 router.get('/', async (req, res) => {
     const fetchedCollection = await getCollection()
